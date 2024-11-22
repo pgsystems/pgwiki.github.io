@@ -13,7 +13,21 @@
         <li><a href="python.html">Python</a></li>
         <li><a href="javascript.html">JavaScript</a></li>
         </ul>
+    <textarea id="miDiario"></textarea>
+  <button onclick="guardarDiario()">Guardar</button>
+  <script>
+    function guardarDiario() {
+      const diario = document.getElementById('miDiario').value;
+      localStorage.setItem('miDiario', diario);
+      alert('¡Tus pensamientos se han guardado!');
+    }
 
-    <script src="script.js"></script>
+    // Cargar los datos guardados al cargar la página
+    window.onload = function() {
+      const diarioGuardado = localStorage.getItem('miDiario');
+      if (diarioGuardado) {
+        document.getElementById('miDiario').value = diarioGuardado;
+      }
+    };
 </body>
 </html>
